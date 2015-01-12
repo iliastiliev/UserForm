@@ -1,12 +1,17 @@
-var express = require('express')
-var app = express()
-
-app.get('/', function (req, res) {
-  res.render('index', {message: "Hi from jade"})
-})
+var express = require('express');
+var app = express();
+var fs = require('fs');
 
 app.set('view engine', 'jade')
+app.set('views', './views')
 
-app.set('view', './view')
+// dynamically include routes (Controller) 
+fs.readdirSync('./controllers').forEach(function (file) { 
+	if(file.substr(-3) == '.js') { 
+		route = require('./controllers/' + file); 
+		route.controller(app); 
+	} 
+});
 
-app.listen(3000)
+app.use(app.route);
+app.listen(3000);
