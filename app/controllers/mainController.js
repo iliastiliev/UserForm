@@ -18,4 +18,22 @@ module.exports.controller = function(app){
 		res.redirect('/')
 	})
 
+	app.post('/search', function(req, res){
+		var searchedUsers = [];
+		console.log(req.body['search-content']);
+		if(req.body['search-content'] === ""){
+			res.render('index', {users: app.users});
+		}
+		else {
+			app.users.forEach(function(user){
+				var user_info = user.username+" "+user.fullname+" "+user.email+" "+user.phone;
+
+				if(user_info.indexOf(req.body['search-content']) != -1) 
+					searchedUsers.push(user);
+			});
+
+			res.render('index', {users:searchedUsers});
+		}
+	})
+
 };
