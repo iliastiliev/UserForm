@@ -3,13 +3,55 @@ doctype html
 html
   head
     link(href='/css/bootstrap.min.css', rel='stylesheet')
+    script(src="/js/jquery.min.js")
+    script(src="/js/bootstrap.min.js")
+    script(src="/js/main.js")
+    link(href="/css/main.css" rel="stylesheet")
   body
     div(style="margin-top: 80px;")
       .col-md-12
-        a.btn.btn-default.col-lg-1(href="#")
+        button.btn.btn-primary.col-lg-1(type='button', data-toggle='modal', data-target='#create')
           span.glyphicon.glyphicon-plus
+        #create.modal.fade(tabindex='-1', role='dialog', aria-labelledby='createFormModal', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') &times;
+                |         
+                h4#createFormModal.modal-title Modal title
+              |       
+              .modal-body
+                .row
+                  form.submit-create-form(action="/create", method="post")
+                    .col-md-12
+                      label.col-lg-2(style="margin:5px;") Username
+                      .col-lg-10
+                        input.form-control.username-create(name="username", type='text', style="margin:5px;")
+                        .error.username-error-create
+                    .col-md-12
+                      label.col-lg-2(style="margin:5px;") Fullname
+                      .col-lg-10
+                        input.form-control.fullname-create(name="fullname",  type='text', style="margin:5px;")
+                        .error.fullname-error-create
+                    .col-md-12
+                      label.col-lg-2(style="margin:5px;") Email
+                      .col-lg-10
+                        input.form-control.email-create(name="email", type='email', required, style="margin:5px;")
+                        .error.email-error-create
+                    .col-md-12
+                      label.col-lg-2(style="margin:5px;") Phone
+                      .col-lg-10
+                        input.form-control.phone-create(name="phone", type='text', style="margin:5px;")
+                        .error.phone-error-create
+              |       
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+                |         
+                button.btn.btn-primary.btn-create-user(type='button') Save changes
         .col-lg-10
           input.form-control(type='text')
         a.btn.btn-default.col-lg-1(href="#")
           span.glyphicon.glyphicon-search
       block users-table
+

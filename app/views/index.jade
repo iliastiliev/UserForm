@@ -11,7 +11,7 @@ block users-table
           th.active Fullname
           th.active Email
           th.active Phone
-          th.active Remove
+          th.active Options
         each user, index in users 
           tr
             td #{user.username}
@@ -19,25 +19,34 @@ block users-table
             td #{user.email}
             td #{user.phone}
             td
-              a.btn.glyphicon(href="")
+              a.btn.glyphicon.show-form(href="javascript:void(0)", data-index="#{index}")
                 span.glyphicon-circle-arrow-down
-  form(id="input-form" style="display: none;")
-    .col-md-12
-      label.col-lg-1(style="margin:5px;") Username
-      .col-lg-10
-        input.form-control(type='text' style="margin:5px;")
-    .col-md-12
-      label.col-lg-1(style="margin:5px;") Fullname
-      .col-lg-10
-        input.form-control(type='text' style="margin:5px;")
-    .col-md-12
-      label.col-lg-1(style="margin:5px;") Email
-      .col-lg-10
-        input.form-control(type='text' style="margin:5px;")
-    .col-md-12
-      label.col-lg-1(style="margin:5px;") Phone
-      .col-lg-10
-        input.form-control(type='text' style="margin:5px;")
-    .col-lg-5
-    a.btn.btn-primary.col-lg-1(href="#" style="margin:10px;") Save
-    a.btn.btn-danger.col-lg-1(href="#"  style="margin:10px;") Delete
+          tr
+            td(colspan="5", style="padding:0px;")
+              .row(id="input-form-#{index}", class="hide-form")
+                form(action="/edit/#{index}", method="post", class="submit-#{index}")
+                  .col-md-12
+                    label.col-lg-1(style="margin:5px;") Username
+                    .col-lg-10
+                      input.form-control(name="username", class="username-#{index}", type='text', style="margin:5px;", value="#{user.username}")
+                      .error(class="username-error-#{index}")
+                  .col-md-12
+                    label.col-lg-1(style="margin:5px;") Fullname
+                    .col-lg-10
+                      input.form-control(name="fullname", class="fullname-#{index}", type='text', style="margin:5px;", value="#{user.fullname}")
+                      .error(class="fullname-error-#{index}")
+                  .col-md-12
+                    label.col-lg-1(style="margin:5px;") Email
+                    .col-lg-10
+                      input.form-control(name="email", class="email-#{index}", type='email', required, style="margin:5px;", value="#{user.email}")
+                      .error(class="email-error-#{index}")
+                  .col-md-12
+                    label.col-lg-1(style="margin:5px;") Phone
+                    .col-lg-10
+                      input.form-control(name="phone", class="phone-#{index}", type='text', style="margin:5px;", value="#{user.phone}")
+                      .error(class="phone-error-#{index}")
+                  .col-lg-5
+                  a.btn.btn-primary.btn-save.col-lg-1(href="javascript:void(0);" style="margin:10px;", data-save-btn="#{index}") Save
+                  a.btn.btn-danger.col-lg-1(href="/delete/#{index}"  style="margin:10px;") Delete
+
+

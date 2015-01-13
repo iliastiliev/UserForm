@@ -1,0 +1,9 @@
+.show-form-content{
+	display:block;
+}
+.hide-form{
+	display:none;
+}
+.error{
+	color:red;
+}

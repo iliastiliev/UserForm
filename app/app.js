@@ -1,10 +1,13 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
 app.set('view engine', 'jade');
 app.set('views', './views');
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 app.users = [
 	{username: "iliailiev", fullname: 'Ilia Iliev', email: 'iliailiev@gmail.com', phone: '+3598873856241'},
