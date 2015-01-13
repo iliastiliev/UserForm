@@ -97,4 +97,9 @@ $(function(){
 		if(isUserNameValidate && isFullNameValidate && isEmailValidate && isPhoneValidate) 
 			$('.submit-create-form').submit();
 	});
+
+	$('.btn-search-user').click(function(e){
+		e.preventDefault();
+		$('#search-form').submit();
+	});
 })
