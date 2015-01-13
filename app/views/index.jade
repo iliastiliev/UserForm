@@ -1,43 +1,43 @@
 extends layout
 
 block users-table
-  div 
+  br
+  br
+  div
     .col-md-12
-      table.table.table-bordered
+      table.table.table-bordered 
         tr
           th.active Username
           th.active Fullname
           th.active Email
           th.active Phone
-          th.active 
-        each user in users 
+          th.active Remove
+        each user, index in users 
           tr
             td #{user.username}
             td #{user.fullname}
             td #{user.email}
             td #{user.phone}
             td
-              a.btn.glyphicon(href="#")
+              a.btn.glyphicon(href="")
                 span.glyphicon-circle-arrow-down
-  div
+  form(id="input-form" style="display: none;")
     .col-md-12
-      label.col-lg-1 Username
-      .col-lg-11
-        input.form-control(type='text')
+      label.col-lg-1(style="margin:5px;") Username
+      .col-lg-10
+        input.form-control(type='text' style="margin:5px;")
     .col-md-12
-      label.col-lg-1 Fullname
-      .col-lg-11
-        input.form-control(type='text')
+      label.col-lg-1(style="margin:5px;") Fullname
+      .col-lg-10
+        input.form-control(type='text' style="margin:5px;")
     .col-md-12
-      label.col-lg-1 Email
-      .col-lg-11
-        input.form-control(type='text')
+      label.col-lg-1(style="margin:5px;") Email
+      .col-lg-10
+        input.form-control(type='text' style="margin:5px;")
     .col-md-12
-      label.col-lg-1 Phone
-      .col-lg-11
-        input.form-control(type='text')
-  div
-    .col-md-12
-      .col-lg-5
-      a.btn.btn-primary.col-lg-1(href="#") Save
-      a.btn.btn-danger.col-lg-1(href="#") Delete
+      label.col-lg-1(style="margin:5px;") Phone
+      .col-lg-10
+        input.form-control(type='text' style="margin:5px;")
+    .col-lg-5
+    a.btn.btn-primary.col-lg-1(href="#" style="margin:10px;") Save
+    a.btn.btn-danger.col-lg-1(href="#"  style="margin:10px;") Delete
