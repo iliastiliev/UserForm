@@ -4,10 +4,12 @@ html
   head
     link(href='/css/bootstrap.min.css', rel='stylesheet')
   body
-    a.btn.btn-primary.col-lg-1(href="#")
-      span.glyphicon.glyphicon-plus
-    .col-lg-10
-      input.form-control(type='text')
-    a.btn.btn-primary.col-lg-1(href="#")
-      span.glyphicon.glyphicon-search
-    block users-table
+    div(style="margin-top: 80px;")
+      .col-md-12
+        a.btn.btn-default.col-lg-1(href="#")
+          span.glyphicon.glyphicon-plus
+        .col-lg-10
+          input.form-control(type='text')
+        a.btn.btn-default.col-lg-1(href="#")
+          span.glyphicon.glyphicon-search
+      block users-table
