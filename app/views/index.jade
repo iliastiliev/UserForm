@@ -1,21 +1,43 @@
 extends layout
 
 block users-table
-  br
-  table.table.table-bordered
-    tr
-      th.active Username
-      th.active Fullname
-      th.active Email
-      th.active Phone
-      th.active 
-    each user in users 
-      tr
-        td #{user.username}
-        td #{user.fullname}
-        td #{user.email}
-        td #{user.phone}
-        td
-          a.btn.glyphicon(href="#")
-            span.glyphicon-circle-arrow-down
-  
+  div 
+    .col-md-12
+      table.table.table-bordered
+        tr
+          th.active Username
+          th.active Fullname
+          th.active Email
+          th.active Phone
+          th.active 
+        each user in users 
+          tr
+            td #{user.username}
+            td #{user.fullname}
+            td #{user.email}
+            td #{user.phone}
+            td
+              a.btn.glyphicon(href="#")
+                span.glyphicon-circle-arrow-down
+  div
+    .col-md-12
+      label.col-lg-1 Username
+      .col-lg-11
+        input.form-control(type='text')
+    .col-md-12
+      label.col-lg-1 Fullname
+      .col-lg-11
+        input.form-control(type='text')
+    .col-md-12
+      label.col-lg-1 Email
+      .col-lg-11
+        input.form-control(type='text')
+    .col-md-12
+      label.col-lg-1 Phone
+      .col-lg-11
+        input.form-control(type='text')
+  div
+    .col-md-12
+      .col-lg-5
+      a.btn.btn-primary.col-lg-1(href="#") Save
+      a.btn.btn-danger.col-lg-1(href="#") Delete
