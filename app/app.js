@@ -1,7 +1,7 @@
 /*file for configuration of the http server*/
 
-var app        = express();
 var express    = require('express');
+var app        = express();
 var fs         = require('fs');
 var bodyParser = require('body-parser');
 
