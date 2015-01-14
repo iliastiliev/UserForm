@@ -1,3 +1,4 @@
+//- .jade file, which consist additional component for user interface; That .jade file extends components from main layout
 extends layout
 
 block users-table
@@ -5,6 +6,7 @@ block users-table
   br
   div
     .col-md-12
+      //- table for showing  of all users in the "server database"
       table.table.table-bordered 
         tr
           th.active Username
@@ -24,6 +26,7 @@ block users-table
           tr
             td(colspan="5", style="padding:0px;")
               .row(id="input-form-#{index}", class="hide-form")
+                //- form for editing of the information for user
                 form(action="/edit/#{index}", method="post", class="submit-#{index}")
                   .col-md-12
                     label.col-lg-1(style="margin:5px;") Username
@@ -46,7 +49,10 @@ block users-table
                       input.form-control(name="phone", class="phone-#{index}", type='text', style="margin:5px;", value="#{user.phone}")
                       .error(class="phone-error-#{index}")
                   .col-lg-5
+                  //- button for save of information for edited user
                   a.btn.btn-primary.btn-save.col-lg-1(href="javascript:void(0);" style="margin:10px;", data-save-btn="#{index}") Save
+                  //- button for delete of user
                   a.btn.btn-danger.col-lg-1(href="/delete/#{index}"  style="margin:10px;") Delete
+  
 
 
