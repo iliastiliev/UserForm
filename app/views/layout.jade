@@ -1,17 +1,24 @@
+//- main jade file; This file consist main components from user interface 
 doctype html
 
 html
   head
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    script(src="/js/jquery.min.js")
+    //- link of already created css styles
+    link(href='/css/bootstrap.min.css', rel='stylesheet') 
+    //- link of already created jquery libraries
+    script(src="/js/jquery.min.js") 
+    //- link of already created javascript libraries
     script(src="/js/bootstrap.min.js")
-    script(src="/js/main.js")
+    //- link of own javascript function for work with the user interface 
+    script(src="/js/main.js") 
+     //- link of own css styles in the user interface
     link(href="/css/main.css" rel="stylesheet")
   body
     div(style="margin-top: 80px;")
       .col-md-12
         button.btn.btn-success.col-lg-1(type='button', data-toggle='modal', data-target='#create')
           span.glyphicon.glyphicon-plus
+        //- modal form for add of new user
         #create.modal.fade(tabindex='-1', role='dialog', aria-labelledby='createFormModal', aria-hidden='true')
           .modal-dialog
             .modal-content
@@ -19,7 +26,7 @@ html
                 button.close(type='button', data-dismiss='modal', aria-label='Close')
                   span(aria-hidden='true') &times;
                 |         
-                h4#createFormModal.modal-title Modal title
+                h4#createFormModal.modal-title Add new user
               |       
               .modal-body
                 .row
@@ -50,8 +57,10 @@ html
                 |         
                 button.btn.btn-primary.btn-create-user(type='button') Add user
         .col-lg-10
+          //- form for searchingn of exists user
           form(id="search-form", method="post", action="/search")  
             input.form-control(name="search-content", type='text')
+        //- button for search of user by creteria
         a.btn.btn-default.btn-search-user.col-lg-1(href="#")
           span.glyphicon.glyphicon-search
         block users-table
