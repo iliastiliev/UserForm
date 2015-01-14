@@ -58,7 +58,7 @@ $(function(){
 			$('.submit-'+id).submit(); // send of valided information of the client to controller
 	});
 
-	/*function for creation of button click event for button Create from modal form for cleationg of new user*/
+	/*function for creation of button click event for button Create from modal form for creationg of new user*/
 	$('.btn-create-user').click(function(e){
 		e.preventDefault();
 
@@ -107,6 +107,7 @@ $(function(){
 	/*function for send of searched creteria to controller*/
 	$('.btn-search-user').click(function(e){
 		e.preventDefault();
+
 		$('#search-form').submit();
 	});
 })
