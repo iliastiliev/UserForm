@@ -1,9 +1,14 @@
+/* css style for show of form */
 .show-form-content{
-	display:block;
+	display: block;
 }
+
+/* css style for hide of form */
 .hide-form{
-	display:none;
+	display: none;
 }
+
+/* css style for creation of red message when error exists */
 .error{
-	color:red;
+	color: red;
 }
