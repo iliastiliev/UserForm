@@ -25,6 +25,10 @@ module.exports.controller = function(app){
 		res.redirect('/');
 	});
 
+	app.get('/cancel-adding', function(req, res){ 
+		res.redirect('/');
+	});
+
 	//rendered of index file and show of information for finded users from creteria
 	app.post('/search', function(req, res){
 		var searchedUsers = [];
